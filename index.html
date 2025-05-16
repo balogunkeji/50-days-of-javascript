@@ -9,6 +9,18 @@
 </head>
 <body>
   <p>Hello</p>
-<script type="module" src="/src/main.js"></script>
+  <button id="button">Click me</button>
+<script>
+  function updateName() {
+    const name = prompt("Enter a new name");
+    button.textContent = `Player 1: ${name}`;
+    console.log(name);
+  }
+
+  const button = document.querySelector("button");
+
+  button.addEventListener("click", updateName);
+
+</script>
 </body>
 </html>
