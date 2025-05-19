@@ -1,17 +1,49 @@
-// Variables (var, let, const);
-//A variable is a “named storage” for data. We can use variables to store goodies, visitors, and other data.
-//Variables are used to store information.
-//We can also declare multiple variables in one line:
-// let user = 'John', age = 25, message = 'Hello';
-//We can declare variables to store data by using the var, let, or const keywords.
-//let – is a modern variable declaration.
-//var – is an old-school variable declaration.
-//const – is like let, but the value of the variable can’t be changed.
-//Variables should be named in a way that allows us to easily understand what’s inside them.
-//examples
-let admin = 'admin';
-let name = 'john';
+//Javascript Operators
+// Arithmetic Operators
+// + Add -> get the sum of a number
+// - Subtract -> get the difference of a number
+// * Multiply -> get the product of a number
+// ** Exponentiation -> get the power of a number
+// / Divide -> get the quotient of a number
+// % Modulo -> get the remainder of a number
+// Increment -> get the increment of a number
+// Decrement -> get the decrement of a number
+// Assignment Operators
+// = Assign
+// += Add and Assign
+// -= Subtract and Assign
+// *= Multiply and Assign
+// /= Divide and Assign
+// % Modulo
+//Comparison Operators
+// ==, != (loose)
+// ===, !== (strict)
+// >, <, >=, <=
+//Logical Operators
+// && (AND)
+// || (OR)
+// ! (NOT)
 
-//You can also copy the value from one variable to another using let or var
-let newName = name;
-let newAdmin = admin;
+//let's build a simple calculator with the basic JavaScript operators.
+const num1 = parseFloat(prompt("Enter the first number:"));
+const operator = prompt("Enter operator (+, -, *, /):");
+const num2 = parseFloat(prompt("Enter the second number:"));
+let result;
+
+if (isNaN(num1) || isNaN(num2)) {
+    alert("Please enter valid numbers.");
+} else {
+    if (operator === "+") {
+        result = num1 + num2;
+    } else if (operator === "-") {
+        result = num1 - num2;
+    } else if (operator === "*") {
+        result = num1 * num2;
+    } else if (operator === "/") {
+        result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+    } else {
+        result = "Invalid operator";
+    }
+
+    alert(`Result: ${result}`);
+}
