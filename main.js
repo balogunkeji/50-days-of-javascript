@@ -1,3 +1,4 @@
+//closure
 //variable declared is only visible to the block. surname is not visible outside the block.
 const name = 'Hello Tomi';
 
