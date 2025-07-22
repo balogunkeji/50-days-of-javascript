@@ -1,6 +1,8 @@
 const btn = document.getElementById('btn');
 const result = document.getElementById('result');
 const yearsLeft = document.getElementById('yearsLeft');
+const output = document.getElementById('output');
+const analyzeBtn = document.getElementById('analyzeBtn');
 btn.addEventListener('click', () => {
     const birthYear = document.getElementById('birthYear').value;
     const currentYear = new Date().getFullYear();
@@ -21,9 +23,14 @@ btn.addEventListener('click', () => {
     }
 })
 
-//variables
-var name = 'Tomisin';
-var name = 'Balogun'
-let names = 'Balogun';
-
-console.log(names, name);
+analyzeBtn.addEventListener('click', (event) => {
+    const inputText = document.getElementById('inputText').value;
+    output.innerHTML = `
+       Number of Characters: ${inputText.length}. <br/>
+       Upper-Case: ${inputText.toUpperCase()}<br/>
+       lower-case: ${inputText.toLowerCase()}<br/>
+       first-Character: ${inputText[0]}<br/>
+       last-character: ${inputText[inputText.length - 1]}<br/>
+       Type of Input: ${typeof(inputText)}
+    `
+})
