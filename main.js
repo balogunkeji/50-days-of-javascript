@@ -1,8 +1,11 @@
-const btn = document.getElementById('btn');
 const result = document.getElementById('result');
 const yearsLeft = document.getElementById('yearsLeft');
 const output = document.getElementById('output');
+const btn = document.getElementById("checkBtn");
+const voteResult = document.getElementById("voteResult");
+const generateBtn = document.getElementById("generateBtn");
 const analyzeBtn = document.getElementById('analyzeBtn');
+const tableResult = document.getElementById('tableResult');
 btn.addEventListener('click', () => {
     const birthYear = document.getElementById('birthYear').value;
     const currentYear = new Date().getFullYear();
@@ -23,6 +26,7 @@ btn.addEventListener('click', () => {
     }
 })
 
+
 analyzeBtn.addEventListener('click', (event) => {
     const inputText = document.getElementById('inputText').value;
     output.innerHTML = `
@@ -33,4 +37,25 @@ analyzeBtn.addEventListener('click', (event) => {
        last-character: ${inputText[inputText.length - 1]}<br/>
        Type of Input: ${typeof(inputText)}
     `
+})
+
+btn.addEventListener('click', (event) => {
+    const inputText = parseInt(document.getElementById('ageInput').value);
+    if (inputText === Number('') || inputText <= 17) {
+        voteResult.textContent = 'You are not eligible to vote'
+    } else {
+        voteResult.textContent = 'You are eligible to vote'
+    }
+});
+
+generateBtn.addEventListener('click', (event) => {
+    const numberInput = parseInt(document.getElementById('numberInput').value);
+    if (numberInput === Number('')  || numberInput <= 0) {
+        tableResult.innerHTML = 'You must enter a number';
+    };
+    for (let i = 1; i <= 12; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${numberInput} * ${i} = ${numberInput * i}`;
+        tableResult.appendChild(li);
+    }
 })
