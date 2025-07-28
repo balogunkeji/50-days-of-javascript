@@ -6,6 +6,8 @@ const voteResult = document.getElementById("voteResult");
 const generateBtn = document.getElementById("generateBtn");
 const analyzeBtn = document.getElementById('analyzeBtn');
 const tableResult = document.getElementById('tableResult');
+const tipBtn = document.getElementById('calcBtn');
+const tipResult = document.getElementById('outputRes');
 btn.addEventListener('click', () => {
     const birthYear = document.getElementById('birthYear').value;
     const currentYear = new Date().getFullYear();
@@ -58,4 +60,20 @@ generateBtn.addEventListener('click', (event) => {
         li.textContent = `${numberInput} * ${i} = ${numberInput * i}`;
         tableResult.appendChild(li);
     }
+})
+
+function calculateTip (bill, tipPercent){
+    const tip = bill * (tipPercent / 100);
+    const total = bill + tip;
+    return total;
+};
+
+tipBtn.addEventListener('click', (event) => {
+    const billAmount = parseInt(document.getElementById('billAmount').value);
+    const tipPercentage = parseInt(document.getElementById('tipPercent').value);
+    if(isNaN(billAmount) || isNaN(tipPercentage)) {
+        tipResult.textContent = 'You must enter a valid percentage';
+    }
+    const tipAmount = calculateTip(billAmount,  tipPercentage);
+    tipResult.textContent = `Your total amount + tip is #${tipAmount.toFixed(2)}`;
 })
